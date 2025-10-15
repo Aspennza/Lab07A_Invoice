@@ -43,6 +43,7 @@ public class InvoiceFrame extends javax.swing.JFrame
 
     JLabel compInvoiceLbl;
     JTextArea compInvoiceTA;
+    JScrollPane scroller;
 
     GridBagConstraints gbc = new GridBagConstraints();
 
@@ -78,6 +79,8 @@ public class InvoiceFrame extends javax.swing.JFrame
         createBillingInfoPnl();
 
         createControlPnl();
+
+        createOutputPnl();
 
         setSize(screenWidth * 3/4, screenHeight * 3/4);
         setLocationRelativeTo(null);
@@ -327,5 +330,29 @@ public class InvoiceFrame extends javax.swing.JFrame
         });
 
         mainPnl.add(controlPnl, gbc);
+    }
+
+    private void createOutputPnl()
+    {
+        outputPnl = new JPanel();
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 2;
+        gbc.gridheight = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+
+        outputPnl.setBorder(new EtchedBorder());
+        outputPnl.setLayout(new BorderLayout());
+
+        compInvoiceLbl = new JLabel("Completed Invoice");
+        compInvoiceLbl.setFont(subtitleFont);
+
+        compInvoiceTA = new JTextArea(10, 50);
+        compInvoiceTA.setEditable(false);
+        scroller = new JScrollPane(compInvoiceTA);
+
+        outputPnl.add(compInvoiceLbl, BorderLayout.NORTH);
+        outputPnl.add(scroller, BorderLayout.CENTER);
+        mainPnl.add(outputPnl, gbc);
     }
 }

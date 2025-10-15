@@ -11,6 +11,7 @@ public class InvoiceFrame extends javax.swing.JFrame
     JPanel outputPnl;
 
     JLabel titleLbl;
+    Font titlePnlFont;
 
     JLabel prodInfoLbl;
     JLabel prodNameLbl;
@@ -52,10 +53,23 @@ public class InvoiceFrame extends javax.swing.JFrame
         mainPnl.setLayout(new GridLayout(4, 1));
         add(mainPnl);
 
+        createTitlePnl();
+        mainPnl.add(titlePnl);
+
         setSize(screenWidth * 3/4, screenHeight * 3/4);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Invoice Creator");
         setVisible(true);
+    }
+
+    private void createTitlePnl()
+    {
+        titlePnl = new JPanel();
+        titleLbl = new JLabel("Invoice Creator");
+        titlePnlFont = new Font("Serif", Font.BOLD, 48);
+        titleLbl.setFont(titlePnlFont);
+
+        titlePnl.add(titleLbl);
     }
 }

@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
 import java.awt.*;
 
 public class InvoiceFrame extends javax.swing.JFrame
@@ -40,6 +41,8 @@ public class InvoiceFrame extends javax.swing.JFrame
     JLabel compInvoiceLbl;
     JTextArea compInvoiceTA;
 
+    GridBagConstraints gbc = new GridBagConstraints();
+
     public InvoiceFrame()
     {
         super("Invoice Creator");
@@ -50,11 +53,10 @@ public class InvoiceFrame extends javax.swing.JFrame
         int screenWidth = screenSize.width;
 
         mainPnl = new JPanel();
-        mainPnl.setLayout(new GridLayout(4, 1));
+        mainPnl.setLayout(new GridBagLayout());
         add(mainPnl);
 
         createTitlePnl();
-        mainPnl.add(titlePnl);
 
         setSize(screenWidth * 3/4, screenHeight * 3/4);
         setLocationRelativeTo(null);
@@ -66,10 +68,24 @@ public class InvoiceFrame extends javax.swing.JFrame
     private void createTitlePnl()
     {
         titlePnl = new JPanel();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        gbc.gridheight = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+
+        titlePnl.setBorder(new EtchedBorder());
+
         titleLbl = new JLabel("Invoice Creator");
         titlePnlFont = new Font("Serif", Font.BOLD, 48);
         titleLbl.setFont(titlePnlFont);
 
         titlePnl.add(titleLbl);
+        mainPnl.add(titlePnl, gbc);
+    }
+
+    private void createProductInfoPnl()
+    {
+        productInfoPnl = new JPanel();
     }
 }

@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class InvoiceFrame extends javax.swing.JFrame
 {
@@ -75,6 +76,8 @@ public class InvoiceFrame extends javax.swing.JFrame
         createProductInfoPnl();
 
         createBillingInfoPnl();
+
+        createControlPnl();
 
         setSize(screenWidth * 3/4, screenHeight * 3/4);
         setLocationRelativeTo(null);
@@ -277,5 +280,52 @@ public class InvoiceFrame extends javax.swing.JFrame
         billingInfoPnl.add(zipTF, TF5GBC);
 
         mainPnl.add(billingInfoPnl, gbc);
+    }
+
+    private void createControlPnl()
+    {
+        controlPnl = new JPanel();
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 2;
+        gbc.gridheight = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+
+        controlPnl.setBorder(new EtchedBorder());
+        controlPnl.setLayout(new GridLayout(1, 3));
+
+        submitBtn = new JButton("Submit");
+        clearBtn = new JButton("Clear Form");
+        quitBtn = new JButton("Quit");
+
+        controlPnl.add(submitBtn);
+        submitBtn.addActionListener((ActionEvent ae) ->
+        {
+            //actionlistener code here
+        });
+
+        controlPnl.add(clearBtn);
+        clearBtn.addActionListener((ActionEvent ae) ->
+        {
+            //actionlistener code here
+        });
+
+        controlPnl.add(quitBtn);
+        quitBtn.addActionListener((ActionEvent ae) ->
+        {
+            //This int tracks whether the user confirmed or denied they wanted to quit the program
+            int selection = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "Quit", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+            //This algorithm determines whether to quit the program based on the user's input
+            if(selection == JOptionPane.YES_OPTION) {
+                JOptionPane.showMessageDialog(null, "Quitting the program...");
+                System.exit(0);
+            } else
+            {
+                JOptionPane.showMessageDialog(null, "The program will remain open.");
+            }
+        });
+
+        mainPnl.add(controlPnl, gbc);
     }
 }

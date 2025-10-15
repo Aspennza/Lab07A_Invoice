@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class InvoiceFrame extends javax.swing.JFrame
 {
@@ -37,4 +38,24 @@ public class InvoiceFrame extends javax.swing.JFrame
 
     JLabel compInvoiceLbl;
     JTextArea compInvoiceTA;
+
+    public InvoiceFrame()
+    {
+        super("Invoice Creator");
+
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = kit.getScreenSize();
+        int screenHeight = screenSize.height;
+        int screenWidth = screenSize.width;
+
+        mainPnl = new JPanel();
+        mainPnl.setLayout(new GridLayout(4, 1));
+        add(mainPnl);
+
+        setSize(screenWidth * 3/4, screenHeight * 3/4);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Invoice Creator");
+        setVisible(true);
+    }
 }

@@ -6,10 +6,9 @@ public class LineItem
     private double calculatedTotal;
     private Product userProduct;
 
-    public LineItem(double quantity, double calculatedTotal, Product userProduct)
+    public LineItem(double quantity, Product userProduct)
     {
         this.quantity = quantity;
-        this.calculatedTotal = calculatedTotal;
         this.userProduct = userProduct;
     }
 
@@ -51,5 +50,11 @@ public class LineItem
     @Override
     public int hashCode() {
         return Objects.hash(quantity, calculatedTotal, userProduct);
+    }
+
+    public double getCalcTotal()
+    {
+        calculatedTotal = quantity * userProduct.getUnitPrice();
+        return calculatedTotal;
     }
 }

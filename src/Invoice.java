@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Invoice
 {
@@ -32,5 +33,29 @@ public class Invoice
         this.cust = cust;
     }
 
+    @Override
+    public String toString() {
+        return "Invoice{" +
+                "totalAmtDue=" + totalAmtDue +
+                ", items=" + items +
+                ", cust=" + cust +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Invoice invoice = (Invoice) o;
+        return Double.compare(totalAmtDue, invoice.totalAmtDue) == 0 && Objects.equals(items, invoice.items) && Objects.equals(cust, invoice.cust);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(totalAmtDue, items, cust);
+    }
+
+    public double getTotAmtDue()
+    {
+        totalAmtDue =
+    }
 }

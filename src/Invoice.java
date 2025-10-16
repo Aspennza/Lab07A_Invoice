@@ -4,7 +4,7 @@ import java.util.Objects;
 public class Invoice
 {
     private double totalAmtDue;
-    private ArrayList<LineItem> items = new ArrayList<>();
+    private ArrayList<LineItem> items;
     private Customer cust;
 
     public Invoice(ArrayList<LineItem> items, Customer cust)
@@ -56,6 +56,10 @@ public class Invoice
 
     public double getTotAmtDue()
     {
-        totalAmtDue =
+        for (LineItem item : items)
+        {
+            totalAmtDue += item.getCalcTotal();
+        }
+        return totalAmtDue;
     }
 }

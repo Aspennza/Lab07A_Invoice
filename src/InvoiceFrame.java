@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class InvoiceFrame extends javax.swing.JFrame
 {
@@ -24,6 +25,7 @@ public class InvoiceFrame extends javax.swing.JFrame
     JTextField prodNameTF;
     JTextField unitPriceTF;
     JTextField quantityTF;
+    JButton addProductBtn;
 
     JLabel billingInfoLbl;
     JLabel companyLbl;
@@ -62,6 +64,9 @@ public class InvoiceFrame extends javax.swing.JFrame
     GridBagConstraints TF5GBC = new GridBagConstraints();
     GridBagConstraints label6GBC = new GridBagConstraints();
     GridBagConstraints TF6GBC = new GridBagConstraints();
+    GridBagConstraints BtnGBC = new GridBagConstraints();
+
+    ArrayList<LineItem> lineItems;
 
     public InvoiceFrame()
     {
@@ -181,6 +186,35 @@ public class InvoiceFrame extends javax.swing.JFrame
 
         productInfoPnl.add(quantityLbl, label3GBC);
         productInfoPnl.add(quantityTF, TF3GBC);
+
+        addProductBtn = new JButton("Add Product");
+        BtnGBC.gridx = 0;
+        BtnGBC.gridy = 4;
+        BtnGBC.gridwidth = 2;
+        BtnGBC.gridheight = 1;
+
+        addProductBtn.addActionListener((ActionEvent ae) ->
+        {
+            if (prodNameTF.getText().trim().isEmpty() || unitPriceTF.getText().trim().isEmpty() || quantityTF.getText().trim().isEmpty())
+            {
+                JOptionPane.showMessageDialog(null, "To add a product, the Product Name, Product Unit Price, and Quantity fields must all be filled.");
+            } else {
+                double unitPrice;
+                int quantity;
+                try {
+                    unitPrice = Double.parseDouble(unitPriceTF.getText().trim());
+                    quantity = Integer.parseInt(quantityTF.getText().trim());
+
+                    Product prod = new Product(prodNameTF.getText().trim(), unitPrice);
+                    lineItems.add(new LineItem(quantity, prod));
+                } catch(NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Values in the Product Unit Price and Quantity fields must be written using digits (1, 2, 3, etc.) only. Values for Quantity must be whole numbers.");
+                }
+            }
+        });
+
+        productInfoPnl.add(addProductBtn, BtnGBC);
+
         mainPnl.add(productInfoPnl, gbc);
     }
 
@@ -354,7 +388,7 @@ public class InvoiceFrame extends javax.swing.JFrame
                 }
 
 
-                Invoice invoiceMsg = new Invoice();
+                //Invoice invoiceMsg = new Invoice();
             }
         });
 

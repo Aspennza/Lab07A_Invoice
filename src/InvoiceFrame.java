@@ -324,7 +324,38 @@ public class InvoiceFrame extends javax.swing.JFrame
         controlPnl.add(submitBtn);
         submitBtn.addActionListener((ActionEvent ae) ->
         {
-            //actionlistener code here
+            if (prodNameTF.getText().trim().isEmpty() || unitPriceTF.getText().trim().isEmpty() || quantityTF.getText().trim().isEmpty() || companyTF.getText().trim().isEmpty() || streetTF.getText().trim().isEmpty() || cityTF.getText().trim().isEmpty() || stateTF.getText().trim().isEmpty() || zipTF.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "You must enter data into every field that is not marked as optional before submitting.");
+            } else {
+                double unitPrice;
+                int quantity;
+                String regExState;
+                String regExZip;
+                try {
+                    unitPrice = Double.parseDouble(unitPriceTF.getText().trim());
+                    quantity = Integer.parseInt(quantityTF.getText().trim());
+                    regExState = "[A-Z][A-Z]";
+                    regExZip = "[0-9][0-9][0-9][0-9][0-9]";
+
+                    if(stateTF.getText().trim().matches(regExState) && zipTF.getText().trim().matches(regExZip))
+                    {
+                        Product product = new Product(prodNameTF.getText().trim(), unitPrice);
+
+                    } else if (!stateTF.getText().trim().matches(regExState) && !zipTF.getText().trim().matches(regExZip)) {
+                        JOptionPane.showMessageDialog(null, "All data entered into the State field must consist of two capital letters (ex. CA, OH). All data entered into the Zip Code field must consist of 5 digits (ex., 45238).");
+                    } else if (!stateTF.getText().trim().matches(regExState)) {
+                        JOptionPane.showMessageDialog(null, "All data entered into the State field must consist of two capital letters (ex. CA, OH).");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "All data entered into the Zip Code field must consist of 5 digits (ex., 45238).");
+                    }
+
+                } catch(NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Values in the Product Unit Price and Quantity fields must be written using digits (1, 2, 3, etc.) only. Values for Quantity must be whole numbers.");
+                }
+
+
+                Invoice invoiceMsg = new Invoice();
+            }
         });
 
         controlPnl.add(clearBtn);

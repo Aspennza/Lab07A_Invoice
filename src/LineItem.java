@@ -57,4 +57,9 @@ public class LineItem
         calculatedTotal = quantity * userProduct.getUnitPrice();
         return calculatedTotal;
     }
+
+    public String getFormattedLineItem()
+    {
+        return String.format("%-25s", userProduct.getName().trim()) + String.format("%-5s", quantity) + String.format("%-10.2f", userProduct.getUnitPrice()) + String.format("%-10.2f", calculatedTotal);
+    }
 }

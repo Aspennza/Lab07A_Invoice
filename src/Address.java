@@ -94,9 +94,9 @@ public class Address
     public String getFormattedAddress()
     {
         if(apt != null) {
-            return street + " " + apt + "\n" + city + ", " + state + " " + zip;
+            return street.trim() + " " + apt.trim() + "\n" + city.trim() + ", " + state.trim() + " " + zip.trim();
         } else {
-            return street + "\n" + city + ", " + state + " " + zip;
+            return street.trim() + "\n" + city.trim() + ", " + state.trim() + " " + zip.trim();
         }
     }
 }

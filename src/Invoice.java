@@ -1,3 +1,6 @@
+import javax.sound.sampled.Line;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -61,5 +64,35 @@ public class Invoice
             totalAmtDue += item.getCalcTotal();
         }
         return totalAmtDue;
+    }
+
+    public String getFormattedInvoice()
+    {
+        StringBuilder formatInvoice = new StringBuilder();
+        String finalInvoice;
+        double roundedTotalAmtDue;
+
+        formatInvoice.append("                      INVOICE                     ");
+        formatInvoice.append("===================");
+        formatInvoice.append(cust.getCustomerBlock());
+        formatInvoice.append("===================\n\n");
+        formatInvoice.append("==================================================");
+        formatInvoice.append("Item                     Qty  Price     Total");
+
+        for (LineItem item : items) {
+            formatInvoice.append(item.getFormattedLineItem());
+            formatInvoice.append("\n");
+        }
+
+        formatInvoice.append("==================================================");
+        formatInvoice.append("\n\n");
+        formatInvoice.append("AMOUNT DUE: ");
+        BigDecimal rounding = new BigDecimal(Double.toString(totalAmtDue));
+        rounding = rounding.setScale(2, RoundingMode.HALF_UP);
+        roundedTotalAmtDue = rounding.doubleValue();
+        formatInvoice.append("$" + roundedTotalAmtDue);
+
+        finalInvoice = formatInvoice.toString();
+        return finalInvoice;
     }
 }

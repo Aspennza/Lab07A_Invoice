@@ -49,6 +49,6 @@ public class Customer
 
     public String getCustomerBlock()
     {
-        return name + "\n" + custAddress.getFormattedAddress();
+        return name.trim() + "\n" + custAddress.getFormattedAddress();
     }
 }

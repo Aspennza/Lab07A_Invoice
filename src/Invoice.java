@@ -72,9 +72,9 @@ public class Invoice
         String finalInvoice;
 
         formatInvoice.append("                     INVOICE                     \n");
-        formatInvoice.append("===================\n");
+        formatInvoice.append("=========================\n");
         formatInvoice.append(cust.getCustomerBlock());
-        formatInvoice.append("\n===================\n\n");
+        formatInvoice.append("\n=========================\n\n");
         formatInvoice.append("==================================================\n");
         formatInvoice.append("Item                     Qty     Price  Total\n");
 

@@ -421,7 +421,20 @@ public class InvoiceFrame extends javax.swing.JFrame
         controlPnl.add(clearBtn);
         clearBtn.addActionListener((ActionEvent ae) ->
         {
-            //actionlistener code here
+            prodNameTF.setText("");
+            unitPriceTF.setText("");
+            quantityTF.setText("");
+            lineItems.clear();
+
+            companyTF.setText("");
+            streetTF.setText("");
+            aptTF.setText("");
+            cityTF.setText("");
+            stateTF.setText("");
+            zipTF.setText("");
+            submitted = false;
+
+            compInvoiceTA.setText("");
         });
 
         controlPnl.add(quitBtn);

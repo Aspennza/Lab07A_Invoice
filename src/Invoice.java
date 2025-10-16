@@ -76,7 +76,7 @@ public class Invoice
         formatInvoice.append(cust.getCustomerBlock());
         formatInvoice.append("\n===================\n\n");
         formatInvoice.append("==================================================\n");
-        formatInvoice.append("Item                     Qty  Price     Total\n");
+        formatInvoice.append("Item                     Qty     Price  Total\n");
 
         for (LineItem item : items) {
             formatInvoice.append(item.getFormattedLineItem());

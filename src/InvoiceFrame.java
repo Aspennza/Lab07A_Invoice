@@ -4,6 +4,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
+//need to CREATE UNIT TESTS
+//need to format the GUI to look nicer
+//need to write javadoc
+//need to make UML and CRC cards
+
 public class InvoiceFrame extends javax.swing.JFrame
 {
     JPanel mainPnl;

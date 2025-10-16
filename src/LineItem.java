@@ -60,6 +60,6 @@ public class LineItem
 
     public String getFormattedLineItem()
     {
-        return String.format("%-25s", userProduct.getName().trim()) + String.format("%-5s", quantity) + String.format("%-10.2f", userProduct.getUnitPrice()) + String.format("%-10.2f", calculatedTotal);
+        return String.format("%-25s", userProduct.getName().trim()) + String.format("%-5s", quantity) + String.format("%-10.2f", userProduct.getUnitPrice()) + String.format("%-10.2f", getCalcTotal());
     }
 }

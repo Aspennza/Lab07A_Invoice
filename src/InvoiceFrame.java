@@ -17,6 +17,7 @@ public class InvoiceFrame extends javax.swing.JFrame
     Font titlePnlFont;
 
     Font subtitleFont = new Font("Serif", Font.BOLD, 25);
+    Font monospace = new Font("Monospaced", Font.PLAIN, 12);
 
     JLabel prodInfoLbl;
     JLabel prodNameLbl;
@@ -66,7 +67,7 @@ public class InvoiceFrame extends javax.swing.JFrame
     GridBagConstraints TF6GBC = new GridBagConstraints();
     GridBagConstraints BtnGBC = new GridBagConstraints();
 
-    ArrayList<LineItem> lineItems;
+    ArrayList<LineItem> lineItems = new ArrayList<>();
 
     public InvoiceFrame()
     {
@@ -441,6 +442,7 @@ public class InvoiceFrame extends javax.swing.JFrame
 
         compInvoiceTA = new JTextArea(10, 50);
         compInvoiceTA.setEditable(false);
+        compInvoiceTA.setFont(monospace);
         scroller = new JScrollPane(compInvoiceTA);
 
         outputPnl.add(compInvoiceLbl, BorderLayout.NORTH);

@@ -70,14 +70,13 @@ public class Invoice
     {
         StringBuilder formatInvoice = new StringBuilder();
         String finalInvoice;
-        double roundedTotalAmtDue;
 
-        formatInvoice.append("                      INVOICE                     ");
-        formatInvoice.append("===================");
+        formatInvoice.append("                     INVOICE                     \n");
+        formatInvoice.append("===================\n");
         formatInvoice.append(cust.getCustomerBlock());
-        formatInvoice.append("===================\n\n");
-        formatInvoice.append("==================================================");
-        formatInvoice.append("Item                     Qty  Price     Total");
+        formatInvoice.append("\n===================\n\n");
+        formatInvoice.append("==================================================\n");
+        formatInvoice.append("Item                     Qty  Price     Total\n");
 
         for (LineItem item : items) {
             formatInvoice.append(item.getFormattedLineItem());
@@ -87,10 +86,9 @@ public class Invoice
         formatInvoice.append("==================================================");
         formatInvoice.append("\n\n");
         formatInvoice.append("AMOUNT DUE: ");
-        BigDecimal rounding = new BigDecimal(Double.toString(totalAmtDue));
+        BigDecimal rounding = new BigDecimal(Double.toString(getTotAmtDue()));
         rounding = rounding.setScale(2, RoundingMode.HALF_UP);
-        roundedTotalAmtDue = rounding.doubleValue();
-        formatInvoice.append("$" + roundedTotalAmtDue);
+        formatInvoice.append("$" + rounding);
 
         finalInvoice = formatInvoice.toString();
         return finalInvoice;

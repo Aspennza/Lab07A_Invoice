@@ -28,11 +28,13 @@ public class InvoiceFrame extends javax.swing.JFrame
     JLabel billingInfoLbl;
     JLabel companyLbl;
     JLabel streetLbl;
+    JLabel aptLbl;
     JLabel cityLbl;
     JLabel stateLbl;
     JLabel zipLbl;
     JTextField companyTF;
     JTextField streetTF;
+    JTextField aptTF;
     JTextField cityTF;
     JTextField stateTF;
     JTextField zipTF;
@@ -58,6 +60,8 @@ public class InvoiceFrame extends javax.swing.JFrame
     GridBagConstraints TF4GBC = new GridBagConstraints();
     GridBagConstraints label5GBC = new GridBagConstraints();
     GridBagConstraints TF5GBC = new GridBagConstraints();
+    GridBagConstraints label6GBC = new GridBagConstraints();
+    GridBagConstraints TF6GBC = new GridBagConstraints();
 
     public InvoiceFrame()
     {
@@ -218,7 +222,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         billingInfoPnl.add(companyLbl, label1GBC);
         billingInfoPnl.add(companyTF, TF1GBC);
 
-        streetLbl = new JLabel("Street address:");
+        streetLbl = new JLabel("Address Line 1:");
         label2GBC.gridx = 0;
         label2GBC.gridy = 2;
         label2GBC.gridwidth = 1;
@@ -234,53 +238,69 @@ public class InvoiceFrame extends javax.swing.JFrame
         billingInfoPnl.add(streetLbl, label2GBC);
         billingInfoPnl.add(streetTF, TF2GBC);
 
-        cityLbl = new JLabel("City:");
+        aptLbl = new JLabel("Address Line 2 (Optional):");
         label3GBC.gridx = 0;
         label3GBC.gridy = 3;
         label3GBC.gridwidth = 1;
         label3GBC.gridheight = 1;
         label3GBC.fill = GridBagConstraints.BOTH;
-        cityTF = new JTextField(15);
+        aptTF = new JTextField(15);
         TF3GBC.gridx = 1;
         TF3GBC.gridy = 3;
         TF3GBC.gridwidth = 1;
         TF3GBC.gridheight = 1;
         TF3GBC.fill = GridBagConstraints.BOTH;
 
-        billingInfoPnl.add(cityLbl, label3GBC);
-        billingInfoPnl.add(cityTF, TF3GBC);
+        billingInfoPnl.add(aptLbl, label3GBC);
+        billingInfoPnl.add(aptTF, TF3GBC);
 
-        stateLbl = new JLabel("State:");
+        cityLbl = new JLabel("City:");
         label4GBC.gridx = 0;
         label4GBC.gridy = 4;
         label4GBC.gridwidth = 1;
         label4GBC.gridheight = 1;
         label4GBC.fill = GridBagConstraints.BOTH;
-        stateTF = new JTextField(15);
+        cityTF = new JTextField(15);
         TF4GBC.gridx = 1;
         TF4GBC.gridy = 4;
         TF4GBC.gridwidth = 1;
         TF4GBC.gridheight = 1;
         TF4GBC.fill = GridBagConstraints.BOTH;
 
-        billingInfoPnl.add(stateLbl, label4GBC);
-        billingInfoPnl.add(stateTF, TF4GBC);
+        billingInfoPnl.add(cityLbl, label4GBC);
+        billingInfoPnl.add(cityTF, TF4GBC);
 
-        zipLbl = new JLabel("Zip Code:");
+        stateLbl = new JLabel("State:");
         label5GBC.gridx = 0;
         label5GBC.gridy = 5;
         label5GBC.gridwidth = 1;
         label5GBC.gridheight = 1;
         label5GBC.fill = GridBagConstraints.BOTH;
-        zipTF = new JTextField(15);
+        stateTF = new JTextField(15);
         TF5GBC.gridx = 1;
         TF5GBC.gridy = 5;
         TF5GBC.gridwidth = 1;
         TF5GBC.gridheight = 1;
         TF5GBC.fill = GridBagConstraints.BOTH;
 
-        billingInfoPnl.add(zipLbl, label5GBC);
-        billingInfoPnl.add(zipTF, TF5GBC);
+        billingInfoPnl.add(stateLbl, label5GBC);
+        billingInfoPnl.add(stateTF, TF5GBC);
+
+        zipLbl = new JLabel("Zip Code:");
+        label6GBC.gridx = 0;
+        label6GBC.gridy = 6;
+        label6GBC.gridwidth = 1;
+        label6GBC.gridheight = 1;
+        label6GBC.fill = GridBagConstraints.BOTH;
+        zipTF = new JTextField(15);
+        TF6GBC.gridx = 1;
+        TF6GBC.gridy = 6;
+        TF6GBC.gridwidth = 1;
+        TF6GBC.gridheight = 1;
+        TF6GBC.fill = GridBagConstraints.BOTH;
+
+        billingInfoPnl.add(zipLbl, label6GBC);
+        billingInfoPnl.add(zipTF, TF6GBC);
 
         mainPnl.add(billingInfoPnl, gbc);
     }

@@ -68,27 +68,44 @@ public class Address
     //May not need?
     @Override
     public String toString() {
-        return "Address{" +
-                "street='" + street + '\'' +
-                ", apt='" + apt + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zip='" + zip + '\'' +
-                '}';
+        if(apt != null) {
+            return "Address{" +
+                    "street='" + street + '\'' +
+                    ", apt='" + apt + '\'' +
+                    ", city='" + city + '\'' +
+                    ", state='" + state + '\'' +
+                    ", zip='" + zip + '\'' +
+                    '}';
+        } else {
+            return "Address{" +
+                    "street='" + street + '\'' +
+                    ", city='" + city + '\'' +
+                    ", state='" + state + '\'' +
+                    ", zip='" + zip + '\'' +
+                    '}';
+        }
     }
 
-    //May not need?
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return Objects.equals(street, address.street) && Objects.equals(apt, address.apt) && Objects.equals(city, address.city) && Objects.equals(state, address.state) && Objects.equals(zip, address.zip);
+        if (apt != null && address.apt != null) {
+            return Objects.equals(street, address.street) && Objects.equals(apt, address.apt) && Objects.equals(city, address.city) && Objects.equals(state, address.state) && Objects.equals(zip, address.zip);
+        } if (apt == null && address.apt == null) {
+            return Objects.equals(street, address.street) && Objects.equals(city, address.city) && Objects.equals(state, address.state) && Objects.equals(zip, address.zip);
+        } else {
+            return false;
+        }
     }
 
-    //May not need?
     @Override
     public int hashCode() {
-        return Objects.hash(street, apt, city, state, zip);
+        if(apt != null) {
+            return Objects.hash(street, apt, city, state, zip);
+        } else {
+            return Objects.hash(street, city, state, zip);
+        }
     }
 
     public String getFormattedAddress()

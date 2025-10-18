@@ -39,7 +39,7 @@ public class Invoice
     @Override
     public String toString() {
         return "Invoice{" +
-                "totalAmtDue=" + totalAmtDue +
+                "totalAmtDue=" + getTotAmtDue() +
                 ", items=" + items +
                 ", cust=" + cust +
                 '}';

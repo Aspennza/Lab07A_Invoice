@@ -33,7 +33,7 @@ public class LineItem
     public String toString() {
         return "LineItem{" +
                 "quantity=" + quantity +
-                ", calculatedTotal=" + calculatedTotal +
+                ", calculatedTotal=" + getCalcTotal() +
                 ", userProduct=" + userProduct +
                 '}';
     }

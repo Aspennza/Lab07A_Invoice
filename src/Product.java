@@ -1,8 +1,16 @@
 import java.util.Objects;
 
+/**
+ * Allows the creation of Product objects storing a product's name and price per unit.
+ * Also includes functions for acting on said objects.
+ * @author Zoe Aspenns aspennza@mail.uc.edu
+ */
 public class Product
 {
+    //This String stores the name of the product
     private String name;
+
+    //This double stores the price per unit of the product
     private double unitPrice;
 
     public Product(String name, double unitPrice)

@@ -8,81 +8,196 @@ import java.util.ArrayList;
 
 //need to write javadoc
 
+/**
+ * Creates an extension of the JFrame class called InvoiceFrame. Allows users
+ * to input product and billing information and outputs a formatted invoice.
+ * @author Zoe Aspenns aspennza@mail.uc.edu
+ */
 public class InvoiceFrame extends javax.swing.JFrame
 {
+    //A JPanel containing all the other JPanels in the program
     JPanel mainPnl;
+
+    //A JPanel containing a JLabel title for the program
     JPanel titlePnl;
+
+    //A JPanel containing input fields for users to input product data
     JPanel productInfoPnl;
+
+    //A JPanel containing input fields for users to input billing information
     JPanel billingInfoPnl;
+
+    //A JPanel containing buttons for submitting data, clearing the fields, and closing the program
     JPanel controlPnl;
+
+    //A JPanel containing a text box for outputting the finished invoice
     JPanel outputPnl;
 
+    //A JLabel containing the title of the application
     JLabel titleLbl;
+
+    //A large, serif font for the application's title
     Font titlePnlFont;
 
+    //A smaller, serif font for the application's subheaders
     Font subtitleFont = new Font("Serif", Font.BOLD, 25);
+
+    //A small, monospaced font for the output field
     Font monospace = new Font("Monospaced", Font.PLAIN, 12);
 
+    //A JLabel that acts as a title for the product information panel
     JLabel prodInfoLbl;
+
+    //A JLabel for the product name field
     JLabel prodNameLbl;
+
+    //A JLabel for the unit price field
     JLabel unitPriceLbl;
+
+    //A JLabel for the quantity field
     JLabel quantityLbl;
+
+    //A JTextField for the product name
     JTextField prodNameTF;
+
+    //A JTextField for the unit price
     JTextField unitPriceTF;
+
+    //A JTextField for the quantity
     JTextField quantityTF;
+
+    //A JButton for creating products to add to LineItems in the items ArrayList
     JButton addProductBtn;
 
+    //A JLabel for the billing info panel's title
     JLabel billingInfoLbl;
+
+    //A JLabel for the company name field
     JLabel companyLbl;
+
+    //A JLabel for the street address field
     JLabel streetLbl;
+
+    //A JLabel for the address line 2 field
     JLabel aptLbl;
+
+    //A JLabel for the city field
     JLabel cityLbl;
+
+    //A JLabel for the state field
     JLabel stateLbl;
+
+    //A JLabel for the zip code field
     JLabel zipLbl;
+
+    //A JTextField for the company's name
     JTextField companyTF;
+
+    //A JTextField for the company's street address
     JTextField streetTF;
+
+    //A JTextField for the company's apartment number
     JTextField aptTF;
+
+    //A JTextField for the company's city
     JTextField cityTF;
+
+    //A JTextField for the company's state
     JTextField stateTF;
+
+    //A JTextField for the company's zip code
     JTextField zipTF;
 
+    //A JButton for submitting and processing the input
     JButton submitBtn;
+
+    //A JButton for clearing all the input fields
     JButton clearBtn;
+
+    //A JButton for quitting the program
     JButton quitBtn;
 
+    //A JLabel for the finished Invoice panel
     JLabel compInvoiceLbl;
+
+    //A JTextArea for outputting the finished Invoice
     JTextArea compInvoiceTA;
+
+    //A JScrollPane for the JTextArea above
     JScrollPane scroller;
 
+    //Some GridBagConstraints for each of the panels inside mainPnl
     GridBagConstraints gbc = new GridBagConstraints();
 
+    //Some GridBagConstraints for the title of each panel
     GridBagConstraints titleGBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the first label in each panel
     GridBagConstraints label1GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the first text field in each panel
     GridBagConstraints TF1GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the second label in each panel
     GridBagConstraints label2GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the second text field in each panel
     GridBagConstraints TF2GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the third label in each panel
     GridBagConstraints label3GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the third text field in each panel
     GridBagConstraints TF3GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the fourth label in each panel
     GridBagConstraints label4GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the fourth text field in each panel
     GridBagConstraints TF4GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the fifth label in each panel
     GridBagConstraints label5GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the fifth text field in each panel
     GridBagConstraints TF5GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the sixth label in each panel
     GridBagConstraints label6GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the sixth text field in each panel
     GridBagConstraints TF6GBC = new GridBagConstraints();
+
+    //Some GridBagConstraints for the add product button
     GridBagConstraints BtnGBC = new GridBagConstraints();
 
+    //An ArrayList of type LineItem for storing a list of LineItems that will be input into the finished invoice
     ArrayList<LineItem> lineItems = new ArrayList<>();
 
+    //A boolean for checking whether a complete invoice has been generated
     boolean submitted = false;
+
+    //A boolean for checking if any products have previously been input already
     boolean firstProduct = true;
 
+    /**
+     * This constructor determines the basic settings for InvoiceFrame and calls
+     * all the methods that establish the individual panels in the frame.
+     */
     public InvoiceFrame()
     {
         super("Invoice Creator");
 
+        //This Toolkit is used to find the screen size of the computer running the GUI
         Toolkit kit = Toolkit.getDefaultToolkit();
+
+        //This Dimension stores the screen size
         Dimension screenSize = kit.getScreenSize();
+
+        //This int stores the height of the screen
         int screenHeight = screenSize.height;
+
+        //This int stores the width of the screen
         int screenWidth = screenSize.width;
 
         mainPnl = new JPanel();
@@ -107,6 +222,9 @@ public class InvoiceFrame extends javax.swing.JFrame
         setVisible(true);
     }
 
+    /**
+     * This method establishes the titlePnl, its GridBagConstraints, and the JLabel inside of it.
+     */
     private void createTitlePnl()
     {
         titlePnl = new JPanel();
@@ -127,6 +245,10 @@ public class InvoiceFrame extends javax.swing.JFrame
         mainPnl.add(titlePnl, gbc);
     }
 
+    /**
+     * This method establishes the productInfoPnl, its GridBagConstraints, and the labels,
+     * fields, and button that go inside it. Also establishes the logic for the button.
+     */
     private void createProductInfoPnl()
     {
         productInfoPnl = new JPanel();
@@ -212,23 +334,33 @@ public class InvoiceFrame extends javax.swing.JFrame
 
         addProductBtn.addActionListener((ActionEvent ae) ->
         {
+            //This algorithm determines whether the form has been submitted yet; if so, prompts the user to clear the program before creating a new invoice
             if(!submitted) {
+                //This algorithm determines if any of the input fields are empty
                 if (prodNameTF.getText().trim().isEmpty() || unitPriceTF.getText().trim().isEmpty() || quantityTF.getText().trim().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "To add a product, the Product Name, Product Unit Price, and Quantity fields must all be filled.");
                 } else {
+                    //This double stores the user's input unit price
                     double unitPrice;
-                    int quantity;
+
+                    //This double stores the user's input quantity
+                    double quantity;
+
+                    //This algorithm parses the user's input into doubles and creates LineItems based on it
                     try {
                         unitPrice = Double.parseDouble(unitPriceTF.getText().trim());
-                        quantity = Integer.parseInt(quantityTF.getText().trim());
+                        quantity = Double.parseDouble(quantityTF.getText().trim());
 
+                        //This Product is created based on the user's input
                         Product prod = new Product(prodNameTF.getText().trim(), unitPrice);
+
                         lineItems.add(new LineItem(quantity, prod));
 
                         prodNameTF.setText("");
                         unitPriceTF.setText("");
                         quantityTF.setText("");
 
+                        //This algorithm determines whether to show this pop-up message based on if the user has entered products before or not
                         if(firstProduct)
                         {
                             JOptionPane.showMessageDialog(null, "Product added. You can continue adding new products to the invoice if desired. Otherwise, move to the Billing Information fields.");
@@ -249,6 +381,9 @@ public class InvoiceFrame extends javax.swing.JFrame
         mainPnl.add(productInfoPnl, gbc);
     }
 
+    /**
+     * This method establishes the billingInfoPnl, its GridBagConstraints, and its labels and fields.
+     */
     private void createBillingInfoPnl()
     {
         billingInfoPnl = new JPanel();
@@ -377,6 +512,10 @@ public class InvoiceFrame extends javax.swing.JFrame
         mainPnl.add(billingInfoPnl, gbc);
     }
 
+    /**
+     * This method establishes the controlPnl, its GridBagConstraints, and the JButtons inside of it.
+     * It also sets the ActionListeners for the buttons, which control most of the functional code in the frame.
+     */
     private void createControlPnl()
     {
         controlPnl = new JPanel();
@@ -402,34 +541,50 @@ public class InvoiceFrame extends javax.swing.JFrame
         controlPnl.add(submitBtn);
         submitBtn.addActionListener((ActionEvent ae) ->
         {
+            //This algorithm checks if the form has been submitted before; if so, blocks the user from creating new invoices until the form is cleared
             if(!submitted)
             {
+                //This algorithm checks if any mandatory billing fields are empty
                 if (companyTF.getText().trim().isEmpty() || streetTF.getText().trim().isEmpty() || cityTF.getText().trim().isEmpty() || stateTF.getText().trim().isEmpty() || zipTF.getText().trim().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "You must enter data into every Billing Information field that is not marked as optional before submitting your invoice.");
                 } else {
+                    //This String stores a RegEx pattern for checking that the user correctly entered a state
                     String regExState;
+
+                    //This String stores a RegEx pattern for checking that the user correctly entered a zip code
                     String regExZip;
 
                     regExState = "[A-Z][A-Z]";
                     regExZip = "[0-9][0-9][0-9][0-9][0-9]";
 
+                    //This algorithm checks that the input matches the RegEx
                     if (stateTF.getText().trim().matches(regExState) && zipTF.getText().trim().matches(regExZip)) {
+                        //This algorithm checks if the apartment field is empty
                         if (aptTF.getText().trim().isEmpty()) {
+                            //This Address stores the billing information entered by the user
                             Address custAddress = new Address(streetTF.getText().trim(), cityTF.getText().trim(), stateTF.getText().trim(), zipTF.getText().trim());
+
+                            //This Customer stores the billing information and company name entered by the user
                             Customer cust = new Customer(companyTF.getText().trim(), custAddress);
+
+                            //This Invoice stores and formats all the data entered by the user
                             Invoice finalInvoice = new Invoice(lineItems, cust);
 
                             compInvoiceTA.setText(finalInvoice.getFormattedInvoice());
                             submitted = true;
                         } else {
+                            //This Address stores the billing information entered by the user
                             Address custAddress = new Address(streetTF.getText().trim(), aptTF.getText().trim(), cityTF.getText().trim(), stateTF.getText().trim(), zipTF.getText().trim());
+
+                            //This Customer stores the billing information and company name entered by the user
                             Customer cust = new Customer(companyTF.getText().trim(), custAddress);
+
+                            //This Invoice stores and formats all the data entered by the user
                             Invoice finalInvoice = new Invoice(lineItems, cust);
 
                             compInvoiceTA.setText(finalInvoice.getFormattedInvoice());
                             submitted = true;
                         }
-
                     } else if (!stateTF.getText().trim().matches(regExState) && !zipTF.getText().trim().matches(regExZip)) {
                         JOptionPane.showMessageDialog(null, "All data entered into the State field must consist of two capital letters (ex. CA, OH). All data entered into the Zip Code field must consist of 5 digits (ex., 45238).");
                     } else if (!stateTF.getText().trim().matches(regExState)) {
@@ -482,6 +637,9 @@ public class InvoiceFrame extends javax.swing.JFrame
         mainPnl.add(controlPnl, gbc);
     }
 
+    /**
+     * This method establishes the outputPnl, its GridBagConstraints, and the JLabel and JTextArea inside it.
+     */
     private void createOutputPnl()
     {
         outputPnl = new JPanel();

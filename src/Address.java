@@ -1,13 +1,29 @@
 import java.util.Objects;
 
+/**
+ * Allows the creation of objects representing addresses,
+ * including street address, apartment address, city, state, and zip code.
+ * Also includes functions for acting on and formatting said objects.
+ * @author Zoe Aspenns aspennza@mail.uc.edu
+ */
 public class Address
 {
+    //This String stores the street address for each Address object
     private String street;
+
+    //This String stores the apartment address for each Address object
     private String apt;
+
+    //This String stores the city for each Address object
     private String city;
+
+    //This String stores the state for each Address object
     private String state;
+
+    //This String stores the zip code for each address object
     private String zip;
 
+    //This constructor creates Address objects including apartment numbers
     public Address(String street, String apt, String city, String state, String zip)
     {
         this.street = street;
@@ -17,6 +33,7 @@ public class Address
         this.zip = zip;
     }
 
+    //This constructor creates Address objects excluding apartment numbers
     public Address(String street, String city, String state, String zip)
     {
         this.street = street;
@@ -107,6 +124,10 @@ public class Address
         }
     }
 
+    /**
+     * Concatenates an Address' street, (optionally) apartment, city, state, and zip code in a readable format.
+     * @return a String containing all the data held in the Address.
+     */
     public String getFormattedAddress()
     {
         if(apt != null) {

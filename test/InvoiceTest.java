@@ -5,17 +5,40 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
+/**
+ * Tests the basic functionality of the methods in the Invoice.java class.
+ * @author Zoe Aspenns aspennza@mail.uc.edu
+ */
 class InvoiceTest {
 
+    //An Address object for incorporating in the Customer objects
     Address address1;
+
+    //A Customer object for incorporating into the Invoices
     Customer cust1;
+
+    //A Customer object for incorporating into the Invoices
     Customer cust2;
+
+    //A Product object for incorporating into the LineItem ArrayLists
     Product product1;
+
+    //A Product object for incorporating into the LineItem ArrayLists
     Product product2;
+
+    //A LineItem ArrayList for incorporating into the Invoices
     ArrayList<LineItem> lineItems1;
+
+    //A LineItem ArrayList for incorporating into the Invoices
     ArrayList<LineItem> lineItems2;
+
+    //An Invoice object for testing the methods
     Invoice invoice1;
+
+    //An Invoice object for testing the methods
     Invoice invoice2;
+
+    //An Invoice object for testing the methods
     Invoice invoice3;
 
     @BeforeEach

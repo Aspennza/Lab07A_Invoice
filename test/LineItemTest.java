@@ -3,12 +3,25 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests the basic functionality of the methods in the LineItem.java class.
+ * @author Zoe Aspenns aspennza@mail.uc.edu
+ */
 class LineItemTest {
 
+    //A Product object for incorporating into the LineItems
     Product prod1;
+
+    //A Product object for incorporating into the LineItems
     Product prod2;
+
+    //A LineItem object for testing the methods
     LineItem item1;
+
+    //A LineItem object for testing the methods
     LineItem item2;
+
+    //A LineItem object for testing the methods
     LineItem item3;
 
     @BeforeEach

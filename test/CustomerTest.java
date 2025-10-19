@@ -3,12 +3,25 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests the basic functionality of the methods in the Customer.java class.
+ * @author Zoe Aspenns aspennza@mail.uc.edu
+ */
 class CustomerTest {
 
+    //A Customer object for testing the methods
     Customer cust1;
+
+    //A Customer object for testing the methods
     Customer cust2;
+
+    //A Customer object for testing the methods
     Customer cust3;
+
+    //A Customer object for testing the methods
     Address address1;
+
+    //A Customer object for testing the methods
     Address address2;
 
     @BeforeEach

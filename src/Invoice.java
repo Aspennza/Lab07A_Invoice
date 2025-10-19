@@ -4,10 +4,20 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Creates Invoice objects containing product and billing information to be output to a console or text box.
+ * Also contains functions for acting on said objects.
+ * @author Zoe Aspenns aspennza@mail.uc.edu
+ */
 public class Invoice
 {
+    //This double stores the total cost of the invoice
     private double totalAmtDue;
+
+    //This ArrayList stores LineItem objects for displaying later
     private ArrayList<LineItem> items;
+
+    //This Customer object stores a company name and its Address
     private Customer cust;
 
     public Invoice(ArrayList<LineItem> items, Customer cust)
@@ -57,6 +67,10 @@ public class Invoice
         return Objects.hash(totalAmtDue, items, cust);
     }
 
+    /**
+     * This method calculates the total cost of the invoice.
+     * @return a double containing the total cost.
+     */
     public double getTotAmtDue()
     {
         for (LineItem item : items)
@@ -66,6 +80,10 @@ public class Invoice
         return totalAmtDue;
     }
 
+    /**
+     * This method creates a String containing a formatted copy of all the information in the Invoice.
+     * @return a String with a formatted output of all the data in the Invoice.
+     */
     public String getFormattedInvoice()
     {
         StringBuilder formatInvoice = new StringBuilder();

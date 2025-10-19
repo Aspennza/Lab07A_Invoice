@@ -3,11 +3,22 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests the basic functionality of the methods in the Address.java class.
+ * @author Zoe Aspenns aspennza@mail.uc.edu
+ */
 class AddressTest {
 
+    //An Address object for testing the methods
     Address address1;
+
+    //An Address object for testing the methods
     Address address2;
+
+    //An Address object for testing the methods
     Address address3;
+
+    //An Address object for testing the methods
     Address address4;
 
     @BeforeEach

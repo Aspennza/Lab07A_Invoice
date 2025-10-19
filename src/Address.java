@@ -65,7 +65,6 @@ public class Address
         this.zip = zip;
     }
 
-    //May not need?
     @Override
     public String toString() {
         if(apt != null) {

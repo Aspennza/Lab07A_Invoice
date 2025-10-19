@@ -28,7 +28,6 @@ public class LineItem
         return userProduct;
     }
 
-    //May not need toString??
     @Override
     public String toString() {
         return "LineItem{" +
@@ -38,7 +37,6 @@ public class LineItem
                 '}';
     }
 
-    //May not need?
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -46,7 +44,6 @@ public class LineItem
         return Double.compare(quantity, lineItem.quantity) == 0 && Double.compare(calculatedTotal, lineItem.calculatedTotal) == 0 && Objects.equals(userProduct, lineItem.userProduct);
     }
 
-    //May not need?
     @Override
     public int hashCode() {
         return Objects.hash(quantity, calculatedTotal, userProduct);

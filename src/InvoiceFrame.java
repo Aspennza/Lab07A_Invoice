@@ -1,13 +1,12 @@
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
-//need to CREATE UNIT TESTS
-//need to format the GUI to look nicer
 //need to write javadoc
-//need to make UML and CRC cards
 
 public class InvoiceFrame extends javax.swing.JFrame
 {
@@ -87,6 +86,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         int screenWidth = screenSize.width;
 
         mainPnl = new JPanel();
+        mainPnl.setBackground(new Color(255, 255, 255));
         mainPnl.setLayout(new GridBagLayout());
         add(mainPnl);
 
@@ -110,13 +110,14 @@ public class InvoiceFrame extends javax.swing.JFrame
     private void createTitlePnl()
     {
         titlePnl = new JPanel();
+        titlePnl.setBackground(new Color(186, 205, 255, 255));
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         gbc.gridheight = 1;
         gbc.fill = GridBagConstraints.BOTH;
 
-        titlePnl.setBorder(new EtchedBorder());
+        titlePnl.setBorder(new CompoundBorder((new EtchedBorder()), new EmptyBorder(10, 10, 10, 10)));
 
         titleLbl = new JLabel("Invoice Creator");
         titlePnlFont = new Font("Serif", Font.BOLD, 48);
@@ -135,7 +136,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         gbc.gridheight = 1;
         gbc.fill = GridBagConstraints.BOTH;
 
-        productInfoPnl.setBorder(new EtchedBorder());
+        productInfoPnl.setBorder(new CompoundBorder((new EtchedBorder()), new EmptyBorder(10, 10, 10, 10)));
         productInfoPnl.setLayout(new GridBagLayout());
 
         prodInfoLbl = new JLabel("Product Information");
@@ -146,6 +147,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         titleGBC.gridwidth = 2;
         titleGBC.gridheight = 1;
         titleGBC.fill = GridBagConstraints.BOTH;
+        titleGBC.insets = new Insets(10, 10, 10, 10);
         productInfoPnl.add(prodInfoLbl, titleGBC);
 
         prodNameLbl = new JLabel("Product Name:");
@@ -160,6 +162,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         TF1GBC.gridwidth = 1;
         TF1GBC.gridheight = 1;
         TF1GBC.fill = GridBagConstraints.BOTH;
+        TF1GBC.insets = new Insets(10, 10, 10, 10);
 
         productInfoPnl.add(prodNameLbl, label1GBC);
         productInfoPnl.add(prodNameTF, TF1GBC);
@@ -176,6 +179,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         TF2GBC.gridwidth = 1;
         TF2GBC.gridheight = 1;
         TF2GBC.fill = GridBagConstraints.BOTH;
+        TF2GBC.insets = new Insets(10, 10, 10, 10);
 
         productInfoPnl.add(unitPriceLbl, label2GBC);
         productInfoPnl.add(unitPriceTF, TF2GBC);
@@ -192,15 +196,19 @@ public class InvoiceFrame extends javax.swing.JFrame
         TF3GBC.gridwidth = 1;
         TF3GBC.gridheight = 1;
         TF3GBC.fill = GridBagConstraints.BOTH;
+        TF3GBC.insets = new Insets(10, 10, 10, 10);
 
         productInfoPnl.add(quantityLbl, label3GBC);
         productInfoPnl.add(quantityTF, TF3GBC);
 
         addProductBtn = new JButton("Add Product");
+        addProductBtn.setBackground(new Color(42, 74, 147, 255));
+        addProductBtn.setForeground(new Color(255, 255, 255));
         BtnGBC.gridx = 0;
         BtnGBC.gridy = 4;
         BtnGBC.gridwidth = 2;
         BtnGBC.gridheight = 1;
+        BtnGBC.insets = new Insets(10, 10, 10, 10);
 
         addProductBtn.addActionListener((ActionEvent ae) ->
         {
@@ -250,7 +258,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         gbc.gridheight = 1;
         gbc.fill = GridBagConstraints.BOTH;
 
-        billingInfoPnl.setBorder(new EtchedBorder());
+        billingInfoPnl.setBorder(new CompoundBorder((new EtchedBorder()), new EmptyBorder(10, 10, 10, 10)));
         billingInfoPnl.setLayout(new GridBagLayout());
 
         billingInfoLbl = new JLabel("Billing Information");
@@ -260,6 +268,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         titleGBC.gridwidth = 2;
         titleGBC.gridheight = 1;
         titleGBC.fill = GridBagConstraints.BOTH;
+        titleGBC.insets = new Insets(10, 10, 10, 10);
 
         billingInfoPnl.add(billingInfoLbl, titleGBC);
 
@@ -275,6 +284,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         TF1GBC.gridwidth = 1;
         TF1GBC.gridheight = 1;
         TF1GBC.fill = GridBagConstraints.BOTH;
+        TF1GBC.insets = new Insets(10, 10, 10, 10);
 
         billingInfoPnl.add(companyLbl, label1GBC);
         billingInfoPnl.add(companyTF, TF1GBC);
@@ -291,6 +301,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         TF2GBC.gridwidth = 1;
         TF2GBC.gridheight = 1;
         TF2GBC.fill = GridBagConstraints.BOTH;
+        TF2GBC.insets = new Insets(10, 10, 10, 10);
 
         billingInfoPnl.add(streetLbl, label2GBC);
         billingInfoPnl.add(streetTF, TF2GBC);
@@ -307,6 +318,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         TF3GBC.gridwidth = 1;
         TF3GBC.gridheight = 1;
         TF3GBC.fill = GridBagConstraints.BOTH;
+        TF3GBC.insets = new Insets(10, 10, 10, 10);
 
         billingInfoPnl.add(aptLbl, label3GBC);
         billingInfoPnl.add(aptTF, TF3GBC);
@@ -323,6 +335,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         TF4GBC.gridwidth = 1;
         TF4GBC.gridheight = 1;
         TF4GBC.fill = GridBagConstraints.BOTH;
+        TF4GBC.insets = new Insets(10, 10, 10, 10);
 
         billingInfoPnl.add(cityLbl, label4GBC);
         billingInfoPnl.add(cityTF, TF4GBC);
@@ -339,6 +352,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         TF5GBC.gridwidth = 1;
         TF5GBC.gridheight = 1;
         TF5GBC.fill = GridBagConstraints.BOTH;
+        TF5GBC.insets = new Insets(10, 10, 10, 10);
 
         billingInfoPnl.add(stateLbl, label5GBC);
         billingInfoPnl.add(stateTF, TF5GBC);
@@ -355,6 +369,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         TF6GBC.gridwidth = 1;
         TF6GBC.gridheight = 1;
         TF6GBC.fill = GridBagConstraints.BOTH;
+        TF6GBC.insets = new Insets(10, 10, 10, 10);
 
         billingInfoPnl.add(zipLbl, label6GBC);
         billingInfoPnl.add(zipTF, TF6GBC);
@@ -371,12 +386,18 @@ public class InvoiceFrame extends javax.swing.JFrame
         gbc.gridheight = 1;
         gbc.fill = GridBagConstraints.BOTH;
 
-        controlPnl.setBorder(new EtchedBorder());
+        controlPnl.setBorder(new CompoundBorder((new EtchedBorder()), new EmptyBorder(10, 10, 10, 10)));
         controlPnl.setLayout(new GridLayout(1, 3));
 
         submitBtn = new JButton("Submit");
+        submitBtn.setBackground(new Color(42, 74, 147, 255));
+        submitBtn.setForeground(new Color(255, 255, 255));
         clearBtn = new JButton("Clear Form");
+        clearBtn.setBackground(new Color(42, 74, 147, 255));
+        clearBtn.setForeground(new Color(255, 255, 255));
         quitBtn = new JButton("Quit");
+        quitBtn.setBackground(new Color(42, 74, 147, 255));
+        quitBtn.setForeground(new Color(255, 255, 255));
 
         controlPnl.add(submitBtn);
         submitBtn.addActionListener((ActionEvent ae) ->
@@ -470,7 +491,7 @@ public class InvoiceFrame extends javax.swing.JFrame
         gbc.gridheight = 1;
         gbc.fill = GridBagConstraints.BOTH;
 
-        outputPnl.setBorder(new EtchedBorder());
+        outputPnl.setBorder(new CompoundBorder((new EtchedBorder()), new EmptyBorder(10, 10, 10, 10)));
         outputPnl.setLayout(new BorderLayout());
 
         compInvoiceLbl = new JLabel("Completed Invoice");

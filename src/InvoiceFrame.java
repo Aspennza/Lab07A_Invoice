@@ -6,8 +6,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
-//need to write javadoc
-
 /**
  * Creates an extension of the JFrame class called InvoiceFrame. Allows users
  * to input product and billing information and outputs a formatted invoice.
